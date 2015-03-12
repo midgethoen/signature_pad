@@ -189,8 +189,8 @@ var SignaturePad = (function (document) {
     SignaturePad.prototype._createPoint = function (event) {
         var rect = this._canvas.getBoundingClientRect();
         return new Point(
-            event.clientX - rect.left,
-            event.clientY - rect.top
+            (event.clientX - rect.left) / (this._canvas.clientWidth / this._canvas.width) ,
+            (event.clientY - rect.top) / (this._canvas.clientHeight / this._canvas.height)
         );
     };
 
